@@ -37,10 +37,3 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
-# Analysis draft/rawdata/submission
-analysis/_draft
-analysis/_rawdata
-analysis/_submission
-
-# INVI template
-analysis/_template/INVI plantilla para autores.docx
