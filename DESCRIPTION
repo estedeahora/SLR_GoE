@@ -1,0 +1,24 @@
+Package: SLRGoE
+Title: Systematic Review of the Literature on Geography of Education
+Version: 0.1.9999
+Authors@R:
+  person(given = "Pablo",
+         family = "Serrati",
+         role = c("cre", "aut"),
+         email = "pabloserrati@gmail.com",
+         comment = c(ORCID = "0000-0001-5300-2243"))
+Description: Material to the article "La articulación entre desigualdades urbanas y educativas. Revisión Sistemática de la literatura sobre 'geografía de la educación".  
+License: CC BY 4.0
+ByteCompile: true
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports: 
+    bookdown,
+    dplyr,
+    here,
+    purrr,
+    readr
+Suggests: devtools,
+    git2r

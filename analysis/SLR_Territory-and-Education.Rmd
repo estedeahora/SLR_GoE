@@ -1,0 +1,231 @@
+---
+title: "La articulación entre desigualdades urbanas y educativas. Revisión Sistemática de la literatura sobre 'geografía de la educación'"
+# La relación entre desigualdades urbanas y escolares. (Subtítulo) Revisión Sistemática de la Literatura
+subtitle: "The articulation between urban and educational inequalities. A Sistematic Literature Review on 'Geography of Education'"
+
+csl: "_template/apa-no-ampersand-bupna.csl"
+bibliography: "_template/library.bib"
+
+output:
+  officedown::rdocx_document:
+    reference_docx: "_template/word_template_Cuaderno-Urbano.docx"
+
+lang: es
+delete_merged_file: false
+
+abstract-title: ""
+abstract: |
+  **Resumen:** En la última década se observa una creciente preocupación por la interdependencia entre desigualdades educativas y urbanas. El artículo propone una revisión de la literatura para caracterizar los desarrollos actuales en el campo de la 'geografía de la educación' dentro de los estudios de habla inglesa y que utilizan una perspectiva metodológica cuantitativa. Para ello se realiza un abordaje metodológico mixto que integra una Revisión Sistemática de la Literatura y una reconstrucción holística de las principales líneas de investigación. Como resultado, se retienn XXX trabajos, sobre los cuales se realiza un análisis cuantitativo y una reconstrucción cualitativa para identificar las principales líneas. En concreto se identifican cuatro líneas principales, a saber: el vínculo entre segregación residencial y segregación educativa; el rol de la elección de escuela; la importancia de los procesos de gentrificación; y el rol de la accesibilidad y las movilidades educativas. Como parte de las conclusiones se destacan los desafíos metodológicos y teóricos que permitirían profundizar el desarrollo de este campo de estudio en los contextos hispanohablantes.
+
+  **Palabras claves:** Geografía de la educación, Elección de escuela, Segregación escolar y residencial, Acceso educativo, Gentrificación
+  
+  **Abstract:**
+  
+  **Keywords:** 
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(officer)
+library(officedown)
+
+library(tidyverse)
+
+if(Sys.getenv("COMPUTERNAME") == "DESKTOP-7QMIJ4C"){
+  file.copy(from = "../../library.bib", 
+            to = "_template/library.bib", 
+            overwrite = T )
+}
+
+options(OutDec= ",",
+        knitr.kable.NA = '')
+
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE, 
+                      warning = FALSE)
+```
+
+# Introducción {#intro}
+
+<!--# El problema desde los estudios urbanos y educativos-->
+
+La ciudad capitalista se caracteriza por la constitución de un entramado de inequidades espaciales que fomentan la fragmentación territorial [@Harvey1977; @Ward2012; @DiVirgilio2018a], limitando el acceso a los bienes y servicios de la ciudad [@DiVirgilio2023; @Nicoletti2023]. La existencia de inequidades en la distribución espacial de los servicios educativos, sumado a la fuerte fragmentación territorial, llevan a que las desigualdades territoriales se expresen en condiciones desiguales de acceso a la educación [@DiVirgilio2019d]. En paralelo, desde la sociología de la educación se ha señalado cómo las condiciones de origen de los estudiantes y los entramados territoriales en los que estos habitan, son fundamentales para entender los resultados educativos [@Bonal2006], los cuales a su vez tienen un peso central en la estratificación social y espacial de las ciudades [@Hout2006b; @Solis2019].
+
+<!--# Planteo del problema -->
+
+En síntesis, tanto desde los *estudios urbanos* como desde el campo de la *sociología de la educación* se enfatiza la importancia del vínculo entre desigualdades educativas y las desigualdades territoriales, así como la mutua interdependencia que existe entre ambos aspectos [@Taylor2001; @Butler2007; @Butler2007a]. Sin embargo, ambos enfoques enfrentan limitaciones para tejer el vínculo entre estas dimensiones. Por un lado, si bien los estudios urbanos identifican la consolidación de diferencias de logros educativos en los territorios y resaltan la importancia de estas diferencias en el proceso de estratificación social [@Hout2006; @Galster2017], no logran vincular estas diferencias con las diferencias y distribución de la oferta educativa. Por otro lado, los enfoques educativos destacan la consolidación de circuitos de escolarización diferenciados [@Baudelot1987; @Serrati2023a; @Dupriez2006] y analizan cómo esto repercute en la composición escolar y la segregación escolar [@Dumay2008; @Southworth2010], pero no explican cómo estas se vinculan con las desigualdades territoriales y los lugares de residencia de los estudiantes.
+
+<!--# Geografía de la educación y educational landscapes -->
+
+Para superar estas limitaciones, la "Geografía de la Educación" [*Geography of Education*] [@Butler2007a; @Taylor2009a] analiza las estructuras sociales, territoriales y las estrategias de los actores se entrelazan en la configuración de *desigualdades educativo-territoriales* [@Serrati2021]. Para ello identifica tres dimensiones claves: (a) la diferencia espacial en las estructuras de provisión de la oferta educativa; (b) las diferentes composiciones sociales de los barrios; y (c) las reglas de "elegibilidad" de los alumnos, que regulan la relación entre territorios y escuelas. En esta línea, @Boterman2019a propone analizar los "paisajes educativos" [*educational landscape*] para entender la interrelación entre los aspectos identificados por Butler y Hamnett, dentro de los cuales distinguen dos dimensiones para comprender la relación entre territorio y escuelas. En primer lugar, el *contexto institucional* define la importancia del financiamiento estatal para el sector privado (haciéndolo asequible), establece el grado de libertad de los padres para elegir escuela (*school choice*) por fuera de la restricción geográfica, define la diferenciación interna de los programas de cada escuela y limita la posibilidad de las escuelas para "seleccionar" alumnos. En segundo lugar, la *geografía de la educación* refiere a la composición étnico-social de las poblaciones escolares, los niveles de segregación residencial y la distribución espacial de las escuelas en el espacio urbano.
+
+<!--# Objetivos y Síntesis de la propuesta -->
+
+Enmarcado en esta preocupación, en los últimos años ha crecido el número de trabajos académicos de habla inglesa que abordan la articulación entre las desigualdades educativas y las desigualdades territoriales. A pesar de ello, en la literatura en español son aún escasos los estudios que abordan estos elementos de forma conjunta y sistemática. <!-- Objetivo -->Tomando en consideración el crecimiento de este campo problemático y su poco desarrollo en la literatura en español, este trabajo propone realizar una sistematización de los trabajos de habla inglesa que abordan la relación entre desigualdades territoriales y las desigualdades educativas en el ámbito urbano desde un enfoque cuantitativo. En particular, nos interesa recuperar aquellos trabajos que enfatizan en la relación desde lo que se puede integrar dentro de la g*eografía de la educación* [@Butler2007a; @Taylor2009a; @Boterman2019a], que analiza los diferentes modos en los que las condiciones espaciales influyen en la situación educativa. <!-- Metodología -->Para dar cuenta de este objetivo, utilizamos un abordaje metodológico mixto que incluye, por un lado, una revisión sistemática de la literatura en base a la búsqueda de palabras claves en uno de los principales indexadores internacionaes y, por otro, una reconstrucción holística de las principales líneas encontradas. <!-- Resultados -->Como resultado de este trabajo se genera una reconstrucción de los principales líneas de trabajo dentro de este campo y se identifican posibles desafíos para el desarrollo de trabajos en el ámbito local que retomen esta línea de trabajo.
+
+<!--# Aportes -->
+
+Este trabajo resulta un aporte en al menos dos aspectos. En primer lugar, hasta donde tenemos conocimiento, es la primera revisión sistematizada de literatura sobre esta articulación problemática. Si bien existen algunos trabajos en inglés que generan una revisión sobre algunos aspectos parciales de esta relación,[^1] no hemos encontrado un trabajo que aborde esta relación de forma más amplia e incluyendo otros aspectos, ni que realice esta revisión de modo sistemático utilizando una metodología explícita para la búsqueda y el filtrado. En segundo lugar, este trabajo contribuye a dinamizar y promover el desarrollo de nuevos trabajos en español sobre este campo en desarrollo. Para ello, identifica las principales líneas de investigación vigentes y las brechas existentes en cada uno de estas.
+
+[^1]: Entre estos podemos mencionar: el trabajo de @Boterman2019a que repasa los principales trabajos sobre la articulación entre segregación escolar y residencial; y el trabajo de @Nieuwenhuis2016 que analiza la asociación entre el efecto barrio y los logros educativos.
+
+<!--# Organización del artículo-->
+
+Este trabajo se organiza de la siguiente manera. En primer lugar, presentamos los detalles metodológicos y las fuentes utilizadas (Sección \@ref(method)). Luego presentamos los resultados obtenidos en la revisión sistemática (Sección \@ref(result)) y reconstruimos las principales líneas de investigación que se desprenden de la bibliografía encontrada (Sección \@ref(trends)). Por último, presentamos unas breves conclusiones, donde identificamos los principales desafíos para futuros trabajos en español sobre esta temática (Sección \@ref(conclusion)).
+
+# Datos y métodología {#method}
+
+Para la revisión sistemática de la literatura seguimos la propuesta metodológica de @VomBrocke2009, quien identifica cinco pasos en el proceso de selección y análisis de la literatura, a saber: (1) definir el alcance de la revisión; (2) conceptualizar los tópicos; (3) búsqueda bibliográfica; (4) análisis de la bibliografía y síntesis; (5) proponer una agenda de investigación. Describimos a continuación brevemente las decisiones adoptadas respecto a los pasos iniciales (1 a 3), mientras que los pasos finales (4 a 5) son elaborados en la sección resultados y conclusiones (Sección \@ref(result) y \@ref(conclusion), respectivamente).
+
+<!-- 1. Alcance -->
+
+Recuperando la taxonomía para revisiones de literatura propuesta por @Cooper1988 (ver Figura \@ref(fig:fig1)), esta revisión: (a) tiene como foco analizar tanto "resultados" de investigación y "teorías" utilizadas para analizar estos resultados; (b) su objetivo es delimitar los "problemas principales" del campo; (c) mediante una organización "conceptual" de los trabajos encontrados; (d) con una perspectiva que pretende una "representación neutral" del estado del campo; (e) destinado a una "audiencia académica especializada" dentro del campo de los estudios urbanos y la sociología de la educación; y (f) con una cobertura "exhaustiva con citación selectiva", es decir, que se consideran todas las fuentes que se encuentra pertinente, pero en la sistematización se describen sólo las más representativas de las líneas encontradas.
+
+```{r fig1, fig.cap="Alcance de la revisión propuesta siguiendo la taxonomía de @Cooper1988", dpi=300,out.width="100%",fig.asp=0.613}
+
+knitr::include_graphics(here::here("figures/SLR_alcance.png"), dpi = 300)
+```
+
+<!-- 2. Conceptualizar los tópicos -->
+
+Como anticipamos, esta revisión busca relevar aquellos trabajos publicados en revistas académicas en lengua inglesa que forman parte del corpus de la *geografía de la educación* y que realizan análisis empíricos de casos mediante el uso de un enfoque metodológico cuantitativo (o mixto incluyendo métodos cuantitativos). El trabajo de búsqueda se restringe a aquellos análisis empíricos dentro del ámbito urbano y que abordan el problema dentro del nivel inicial, primario o secundario (no se considera superior o formación profesional). Como parte de este recorte, no se consideraron en la búsqueda dos aspectos que tienen su propia historia: por un lado, el análisis del logro educativo con posterioridad a la escolaridad (*feedback*); y por otro, los trabajos que abordan el trabajo docente.
+
+<!-- 3. Mecánica de búsqueda -->
+
+En base a este recorte conceptual se realizó la búsqueda bibliográfica por 'palabras claves' en *Scopus*.[^2] A partir de esta búsqueda se hizo una selección y filtrado de textos en dos etapas. En primer lugar, a partir de la lectura de los resúmenes y palabras claves, se retuvo aquellos textos relacionados con la temática y el alcance definido, para lo cual se utilizaron 5 criterios sucesivos (si uno era negativo se consideraba que el artículo no correspondía con la búsqueda y era rechazado). En segundo lugar, se realizó una lectura en profundidad de los artículos, en la cual se corroboró la concordancia con la temática y alcance de la revisión. Además, a partir de esta lectura se incorporaron algunos textos citados en los trabajos seleccionados que se consideraban relevantes y que no habían sido seleccionados en la primera búsqueda. Durante ambos procesos se fue generando una codificación abierta y emergente de los textos, que busca identificar las temáticas principales referidas encontradas y clasificar los tópicos textos. Como resultado se definieron los siguientes tópicos principales: segregación residencial y escolar; elección de escuelas; logro educativo; gentrificación y suburanización; accesibilidad y movilidad educativa; distribución espacial de escuelas; reglas de elegibilidad escolar; áreas de captación y distritos escolares compulsivos; y efecto barrio. En la Figura \@ref(fig:fig2) se resume la cantidad de artículos seleccionados en las diferentes etapas. A partir de un corpus original de 2275 textos, el proceso de filtrado y selección dio lugar a un corpus final de 150 <!--#  -->artículos seleccionados.
+
+[^2]: La búsqueda fue realizada en abril de 2022, por lo cual no se consideraron trabajos posteriores. Los detalles sobre los términos utilizados en la búsqueda dentro de *Scopus*, así como los criterios de filtrado y selección de textos se encuentran descriptas en el apéndice en línea.
+
+<!--# Ver el trabajo @Nieuwenhuis2016 y @Cocchia2014 para sacar referencias de metodología; @VomBrocke2009 -->
+
+```{r fig2, fig.cap="Esquema de RSL", dpi=300,out.width="100%",fig.asp=1}
+knitr::include_graphics(here::here("figures/SLR_esquema2.png"), dpi = 300)
+```
+
+```{r data}
+res <- read.csv("search/res.csv") |> 
+  rename(type = Document.Type, 
+         tema_gral = Temática, 
+         tema_seg = Segregación,
+         tema_schoolchoice = School.choice,
+         tema_logro = Logro.educativo,
+         tema_context = Contextualidad,
+         tema_gentrif = Gentrificación.White.flight,
+         tema_mobility = Accesibilidad.movilidad,
+         tema_selection = Elegibilidad,
+         tema_distribution = Distribución,
+         tema_neigeffect = Neighborhood.effect,
+         tema_catchment = Catchment.areas,
+         tema_otro = Otro.tema,
+         tema_otro_cual = Otro.tema.Cual,
+         f_local = Relación.local,
+         f_urb = Urbano,
+         f_cuanti = Cuantitativo,
+         f_level = Nivel,
+         f_reverse = Reverse.Causality,
+         include = Incluir) |> 
+  mutate(include = factor(include, levels = -1:1, 
+                          labels = c("no", "ns", "si")),
+         across(c(starts_with("f_"), tema_seg:tema_otro_cual), 
+                ~ifelse(tema_gral, .x, NA) ),
+         across(c(starts_with("f_"), starts_with("tema_")), 
+                as.logical) )   
+
+db <- res |>
+  filter(include == "si" ) |>
+  select(DOI, Title, Abstract, Author.Keywords, 
+         RESUMEN, TITULO,
+         Authors, Source.title, Year4,
+         tema_gral, include, Duda, star,
+         starts_with("tema_"),
+         starts_with("f_"),
+         Visto, Observ)
+```
+
+<!--# Resultados de la revisión sistemática de la literatura -->
+
+<!--# Mostrar resultado de búsqueda: Selección general (con filtros de Scopus), Selección filtrada (final). Nube de palabras con selección final. Topic modelling, Posible LDA. -->
+
+<!--# https://slcladal.github.io/topicmodels.html -->
+
+<!--# Text mining with R: https://www.tidytextmining.com/topicmodeling.html#:~:text=Topic%20modeling%20is%20a%20method,for%20fitting%20a%20topic%20model -->
+
+<!--# LDAvis, para visualización: https://github.com/cpsievert/LDAvis -->
+
+# Discusión de los resultados de la revisión {#trends}
+
+El trabajo conceptual no pretende abarcar la totalidad de estudios que entran dentro del campo de la geografái de la educación, sino más bien permitir una introducción a este cruce problemático, destacando sus principales líneas de indagación.A su vez, se ha priorizado la bibliografía más reciente, pero prestando especial atención a aquellos trabajos que pueden considerarse "pioneros". Si bien en la búsqueda se han compilado los trabajos que aplican una metodología cuantitativa, para la sistematización se ha recogido el aporte de algunos trabajos teóricos (y también trabajos con revisiones), en tanto permiten entender las características del problema que se describe.
+
+continuación desarrollamos dos aspectos centrales trabajados por la bibliografía internacional que nos permiten pensar este campo de la geografía de la educación. <!--# En primer lugar, recuperamos aquellos trabajos que han propuesto analizar conjuntamente la segregación residencial y la segregación escolar (Sección @ref(segre)). Luego, consideramos los aportes que analizan el rol de las las elecciones escolares (Sección @ref(school-choice)) y las movilidades educativas (Sección @ref(movilidad)). -->Obviamente, como veremos, muchos de estos temas se articulan e interrelacionan entre sí
+
+## Segregación residencial y segregación escolar {#segre}
+
+ver: <https://www.tandfonline.com/doi/full/10.1080/03906701.2019.1641276>
+
+Un aspecto central de la propuesta de la geografía de la educación es el vínculo entre la segregación residencial y la segregación escolar. A partir de la publicación del "Informe Coleman" en Estados Unidos, diferentes trabajos propusieron analizar el vínculo entre segregación residencial y escolar, entendido como una de las causales del menor rendimiento de los niños afroamericanos y los niños pobres. En este camino, el trabajo de @Farley1975 señala una importante relación entre ambas modalidades de segregación (por raza). A su vez, este trabajo señala el efecto positivo de las intervenciones estatales para reducir el la corelación entre ambas formas de segregación. Trabajos posteriores [@Rivkin1994; @Reardon2000a; @Reardon2003; @Reardon2014; @Frankenberg2013; @Saporito2014; @Serbulo2019] actualizan estos resultados, señalando que luego de un leve declive, a partir de 1990 la relación entre ambos tipos de segregación se fortaleció, al punto que "la mayoría de la variación en la segregación escolar a nivel de las áreas metropolitanas se explica por la segregación residencial" [@Frankenberg2013, p. 558]. A su vez, debido a la interconexión existente entre elecciones residenciales y elecciones educativas, la segregación residencial dentro de los distritos escolares (particularmente en los suburbios) puede llevar a que se profundice la segregación escolar *de facto* [@Frankenberg2013; @Lareau2014a; @Candipan2019]. En paralelo, el crecimiento en los Estados Unidos de las desigualdades de clase ha llevado a analizar la estrecha relación entre segregación residencial por raza con la segregación por clase e ingreso, a la vez que el rol de estas para la configuración de la segregación educativa [@Jargowsky2014; @Owens2016; @Owens2019].[^3]
+
+[^3]: Un resumen interesante de los enfoques que han propuesto vincular la segregación residencial y escolar en Estados Unidos puede encontrarse en @Kimberly2014. En este trabajo se pone también de manifiesto la importancia que la elección residencial y las políticas de elección escolar tienen en esta relación.
+
+Respecto a la situación de Inglaterra, el trabajo de @Taylor2001 identifica la existencia de un "proceso bidireccional de determinación mutua" entre el mercado inmobiliario y el mercado educativo, el cual lleva a una fuerte relación entre la segregación residencial y la segregación educativa por nivel socioeconómico [@Taylor2001] y por grupo étnico [@Burgess2005a]. El análisis comparado de la situación en diferentes países,[^4] permite a @Boterman2019a [p. 3.062] señalar que en aquellos paisajes educativos donde existen elevados niveles de libertad en la elección de escuela y el sector privado tiene mayor desarrollo y apoyo mediante subsidios, es posible corroborar una tendencia que lleva a que "las escuelas están más segregadas que los barrios". Esta hipótesis pone en cuestión la posibilidad de pensar en una relación lineal entre ambos tipos de segregación, como se observaba en el caso estadounidense e inglés (donde el sistema público se basa en la captación por área). Según Boterman y sus colegas, esa diferencia o *gap* entre ambas segregaciones, varía entre los sistemas educativos y se deben a los contextos institucionales que caracterizan los paisajes educativos particulares.
+
+[^4]: El número especial de *Urban Studies* (2019, Volume 56, Issue 15, "School segregation in contemporary cities: Socio-spatial dynamics and urban outcomes") propone un análisis comparado de la relación entre segregación residencial y segregación educativa[@Boterman2019; @Bernelius2019; @Oberti2019; @Maloutas2019; @Vergou2019; @Cordini2019; @Nielsen2019; @Bonal2019; @RamosLobato2019]. En particular, este número especial tiene el interés de incorporar al análisis la situación de países
+
+Utilizando índices de segregación que permiten una elevada descomposición, los trabajos de @Frankel2011 y @Courtioux2020 analizan la segregación escolar en Estados Unidos y Francia, respectivamente, diferenciando el rol de los diferentes niveles geográficos en los efectos segregatorios. En particular, el trabajo de @Courtioux2020 sobre el caso francés también incorpora una desagregación del peso que tiene la diferencia entre escuelas públicas y privadas para entender la segregación escolar.
+
+Por su parte, los trabajos de Boterman [@Boterman2016; @Boterman2019a] y Van Ham [@VanHam2016; @VanHam2018] proponen entender la segregación desde un enfoque que integre múltiples dominios. En este marco, @Boterman2019a plantea la existencia de una reproducción multi-dominio de la segregación (*multi-domain reproduction of segregation*) que permite entender cómo los diferentes dominios de la vida pueden articularse y reforzar las situaciones de aislamiento social. Respecto al ámbito educativo, @Boterman2019a [p. 3.058] señala que la "segregación escolar no solo refleja las desigualdades sociales -y espaciales- existentes, sino que también juega un papel crucial para mantenerlas y exacerbarlas".[^5]
+
+[^5]: Un planteo similar es propuesto por @Brikman2020 quien, recuperando el trabajo de @DiVirgilio2014c, propone la noción de *segregación urbana* para "hacer referencia tanto al lugar de residencia como al modo en que lxs sujetxs [*sic*] practican la ciudad" [@Brikman2020, p. 210]. Desde este enfoque propone un análisis de las movilidades cotidianas en el que analiza cómo la segregación residencial se articula con diferentes usos del espacio urbano.
+
+## La elección de escuela y *catchment area*: las reglas de asignación entre territorio y escuelas {#school-choice}
+
+En el apartado anterior, señalamos que para comprender la relación entre la desigualdad educativa y la desigualdad territorial no es suficiente considerar la proximidad entre las poblaciones segregadas y los establecimientos educativos, comparando la similitud en los patrones de distribución espacial. Como señala @Born2018, considerar sólo la "proximidad" entre escuelas y territorios no permite entender los modos en los que estos aspectos de lo social se relacionan. En este sentido, debe incorporarse el análisis de las elecciones escolares [@Yoon2020] y las movilidades educativas [@Barthon2011].
+
+El concepto de "elección de escuela" (*school choice*)[^6] ha sido retomado por diferentes investigadores para estudiar cómo los "procesos de elección" de escuela (*choosing*) y las "elecciones" (*choice*) resultantes de estos procesos permiten la reproducción de las desigualdades sociales. En esta línea se destacan los trabajos pioneros de Ball y sus colegas [@Ball1993; @Ball1997; @Ball1995; @Ball1996; @Bowe1994; @Reay1997], quienes aportaron evidencia sobre cómo las "elecciones de escuela" varían en función de la clase social de las familias, transformándose en un mecanismo que beneficia fundamentalmente a las familias de clases medias y altas. En distintos países se corrobora que las elecciones escolares funcionan reforzando diferencias de clase y diferencias étnicas [entre otros: @DuruBellat2004; @OlmedoReinoso2007; @OlmedoReinoso2008; @Rambla2003; @VanZanten2007; @VanZanten2015; @Ellison2018; @Forsberg2018; @Lubienski2017; @Potterton2020].[^7]
+
+[^6]: La *elección de escuela* emerge originalmente como una preocupación política antes que académica, en el marco de la difusión de las políticas de mercado en el campo educativo. Como parte de las propuestas de reforma neoliberales que se difundieron desde la década de 1980, diferentes gobiernos fomentaron programas educativos para favorecer la "elección de escuela" y estimular el "rol dinamizador" de las familias en el "mercado educativo".
+
+[^7]: Una revisión sobre los trabajos que recuperan el concepto de *school choice* en Latinoamérica puede encontrarse en @Orellana2017.
+
+Un aspecto relevante del concepto de elección de escuela es que el mismo permite abordar la articulación entre los territorios (donde habitan las familias) y las diferentes redes de escolarización. En esta línea, @Ball1995 señalan que las familias de clase obrera suelen realizar sus elecciones de escuela en el marco de un "orden pragmático", en el cual las "distancias" aparecen como un elemento crucial. Para estos autores la importancia de la cercanía se basa en "la fricción de la distancia", entendida como el costo de superar las distancias. Según los resultados de estos estudios, el peso de la distancia es mayor para familias de clase obrera debido al menor acceso y posesión de medios de transporte, así como conocimientos sobre su uso.[^8] Confirmando estas ideas para Estados Unidos, @Teske2007 [pp. 46] señalan que las familias de bajos ingresos tienen el doble de probabilidades de incluir la proximidad como un factor importante en la elección de escuela. La importancia que toman las constricciones "geográficas" (como la distancia) en las elecciones escolares de las familias de bajos ingresos ha llevado a que algunos autores refieran a estas familias como "no-electores" [@Bernal2005] o electores "por inercia" [@Moschetti2020]. Estos trabajos tienen el mérito de incorporar la dimensión espacial como una "constricción" (asociada fundamentalmente a las familias de bajos ingresos). Sin embargo, este enfoque los lleva a entender el espacio como una dimensión secundaria de la clase social y no les permite captar la especificidad de la dimensión espacial [@Yoon2020, p. 203]. En consonancia con esto, @Taylor2009 [p. 552] señala que lo que él denomina la "sociología de la elección de escuela" se ha centrado en "cómo el espacio constriñe las chances en lugar del modo en el que el espacio y las elecciones se interrelacionan".
+
+[^8]: Retomando a Harvey, señalan que estas familias se diferencian "tanto en la capacidad (o disposición) de superar 'la fricción de la distancia' como en las diferencias de percepción en los horizontes espaciales" y en las formas de "representar el espacio" [@Ball1995, p. 61]. De esta manera "el espacio, la distancia y el transporte juegan un papel importante en hacer que algunas escuelas sean más 'accesibles' que otras" [@Ball1995, p. 74].
+
+Como respuesta a estas limitaciones, @Lubienski2009 [p. 487] sostienen que "la elección de escuela es un problema inherentemente espacial" y por ello proponen incorporar el uso de herramientas de análisis espacial para su estudio. Recuperando metodológicamente este trabajo, @Yoon2017a [p. 3] indagan cómo las "posiciones y disposiciones espaciales"[^9] de las familias de bajos ingresos configuran sus patrones y prácticas de participación en la elección de escuela. Estos trabajos permiten enfatizar la relación entre espacio y clase social, incluyendo la dimensión espacial como aspecto singular en estas elecciones. @Taylor2009 propone el desarrollo de una "geografía de la elección de escuela" (*geography of school choice*), mediante la incorporación de herramientas del análisis espacial. Este enfoque permite entender cómo actúa la movilidad intercediendo entre la ubicación de las escuelas y los alumnos en el "mercado urbano" para generar situaciones de segregación educativa, considerando las diferentes escalas de ese proceso. Taylor señala que generalmente las familias consideran un número limitado de escuelas, en donde la distancia o el tiempo de viaje constituye un factor central, lo que genera "mercados de competencia local" entre las escuelas. Sin embargo, en una escala mayor estos mercados se encuentran "interconectados" dentro de un mercado urbano. Esta interconexión entre mercados de competencia locales y el mercado de competencia global se traduce en que las escuelas que "ganan" alumnos de las áreas cercanas de otras escuelas, pueden también "perder" alumnos de su propia área de influencia hacia estas u otras escuelas.
+
+[^9]: Recuperando el concepto de *habitus* de Bourdieu los autores entienden las "posiciones espaciales" en función de las "ubicaciones residenciales de las familias en la geografía urbana" y a las "disposiciones espaciales" como "la familiaridad, comodidad, recursos, rutinas, percepciones y emociones de las familias que se desarrollan en función de dónde residen".
+
+En la Sección \@ref(segre) nos concentramos en recuperar los trabajos que analizan la relación entre segregación residencial y segregación escolar. Recuperando esta preocupación, algunos trabajos ponen de manifiesto "cómo la elección escolar, la reproducción social y la segregación espacial están intrínsecamente conectadas" [@Yoon2020, p. 194]. En este sentido, la elección de escuelas constituye una estrategia central para las familias, cuando los contextos de las escuelas locales cercanas suponen un fuerte riesgo de mezcla social. Según @Putnam2007 [p. 147], "cuanto más étnicamente diversa es la gente con la que vivimos, menos confiamos en ellos". Los trabajos de Saporito [@Saporito2014; @Saporito2007] y @Lankford2006, respecto a la situación en Estados Unidos, señalan que una composición racial diversa en un vecindario puede llevar a las familias blancas a elegir escuelas privadas con el fin de evitar el contacto con niños de otros grupos étnicos.[^10] Por su parte @Boterman2021a señala que las elecciones escolares de los padres de clases medias y altas tienden a buscar una mayor homogeneidad en la composición social de las escuelas, lo cual muchas veces guía las estrategias de movilidad residencial de las familias.
+
+[^10]: Como señala @Saporito2014, la elección de escuelas privadas por familias de origen blanco en Estados Unidos puede explicarse significativamente la proporción de niños negros en su comunidad y con la segregación racial en las escuelas públicas locales. De manera similar, @Lankford2006 [p. 232] señala que "Los blancos que se enfrentan a escuelas públicas urbanas con concentraciones incluso moderadas de afroamericanos o latinos tienen muchas más probabilidades de optar por escuelas privadas o elegir escuelas públicas suburbanas".
+
+Sintetizando muchos de estos elementos, @Boterman2019 destaca que en aquellas ciudades donde el acceso a las escuelas está definido por criterios geográficos (como en Estados Unidos o Inglaterra), existe un fuerte vínculo entre elecciones residenciales y elecciones escolares. Sin embargo en países con *paisajes educativos* que promueven la "elección libre" (como los Países Bajos), la elección escolar es un aspecto a tener en cuenta para explicar la diferencia entre segregación escolar y segregación. Los trabajos de Bonal y sus colegas [@Bonal2020a; @Bonal2021]identifican que, en el contexto de Barcelona, las movilidades educativas y la elección de escuela son factores que aumentan la segregación escolar. Para ello comparan la segregación real con la que se obtendría con un modelo (teórico) en el que la asignación se base sólo en la cercanía entre residencia y el emplazamiento educativo.
+
+Por su parte, el trabajo de @Dignum2022 propone identificar en qué medida las elecciones
+
+## Gentrificación
+
+Analizando los procesos de gentrificación en la ciudad de Amsterdam, @Boterman2020 identifica que los procesos de elección escolar de las clases medias pueden generar efectos contradictorios en términos de segregación. Por un lado la mayor demanda de los sectores medios puede hacer mejorar la diversidad en ciertas escuelas. Por otro lado, las familias de clase media pueden llegar a promover procesos de "desafiliación" y evitar las escuelas locales aumentando la segregación. También referido a la elección de escuela en los procesos de gentrificación, el trabajo de @Candipan2019 analiza el contexto estadounidense y señala que la reciente promoción de la elección de escuela (por sobre la histórica asignación por lugar de residencia) y la diversidad de programas en las escuelas locales en vecindarios que están cambiando su composición social producto de una migración de familias blancas, lleva a que los procesos de diversidad residencial no se acompañen de procesos de integración educativa.
+
+Por útlimo, el trabajo de @Green2022 señala que los procesos de gentrificación en las áreas centrales pueden promover restructuraciones en la configuración racial y socioeconómica, que afecta la composición de escuelas. Lo novedoso de este estudio es que propone analizar no el efecto de la gentrificación una vez ya consolidada, sino cómo se desarrolla el proceso de cambio en diferentes tipologías de escuelas durante los cambios en la gentrificación de los distritos escolares. Como parte de sus resultados identifican que no necesariamente la gentrificación de los barrios lleva a gentrificación escolar. Estos resultados llevan a cuestionar la idea de que la gentrificación de los barrios conlleve una gentrifiacación de las escuelas <!--# Cita artículos que trabajan la relación entre estos temas: Billingham, 2019; Cucchiara, 2013; Diem et al., 2019; Freidus, 2016, 2019; Keels et al., 2013; Lipman, 2013; McGhee & Anderson, 2019; Pearman, 2019, 2020; Posey-Maddox, 2014; Roda, 2020 . -->
+
+## Accesibilidad y movilidad espacial {#movilidad}
+
+A fin de comprender y profundizar la relación entre localización residencial y localización de los establecimientos educativos, @Barthon2011 retoman el concepto de capital espacial.[^11] En este sentido, el capital espacial permite explicar las prácticas de movilidad diferenciales que realizan algunos grupos para mejorar sus elecciones educativas. Indagando sobre el acceso educativo en Lille (Francia), señalan que el lugar de residencia expresa diferentes *capitales de posición* frente a la oferta educativa, en tanto la distribución desigual de los recursos escolares considerados "mejores" se corresponde con las mejores posiciones residenciales. Por ello, la posición en el espacio residencial constituye un recurso crucial para aprovechar los beneficios del sistema educativo. Sin embargo, sin restar importancia a este capital de posición, la movilidad aparece como un nuevo capital (*de situación*) que permite optimizar las ventajas residenciales y posibilita a algunas familias superar los déficit de capital de posición (residencial).
+
+[^11]: Para este análisis, los autores toman el concepto de *capital espacial* de @Levy2003, quienes proponen una distinción entre un *capital de posición*, vinculado a la relación con un lugar como puede ser el trabajo o el hábitat; y un *capital de situación*, vinculado al espacio que el individuo apropia por medio de su movilidad y que le permite controlar las distancias. A partir de esta distinción, los autores señalan que "el acceso al espacio urbano requiere condiciones prácticas (acceso al transporte público o individual) y habilidades específicas (físicas, culturales y sociales) que no están disponibles para todas las categorías sociales". En este marco, la "movilidad se convierte en un recurso social cuyos orígenes y efectos deben entenderse en términos de desigualdades" [@Barthon2011, p. 323].
+
+# Agunas claves para investigaciones futuras {#conclusion}
+
+En este trabajo relevamos los aportes más importantes respecto a la articulación entre las desigualdades territoriales y las desigualdades educativas, dentro de lo que hemos identificado como *geografía de la educación* [@Butler2007a]. Como espacio de confluencia entre el campo de los estudios urbanos y el de la sociología de la educación, esta perspectiva permite hacer foco en cómo la dimensión espacial es reinterpretada en diferentes contextos socio-territoriales y distintos paisajes educativos.
+
+Como resultado
+
+recuperamos una línea de trabajo que abordan la relación entre segregación residencial y segregación escolar (Sección \@ref(segre)), así como otro eje de indagación que propone recuperar el concepto de elección escolar y movilidades educativas, para entender y analizar el modo en el que se articulan las desigualdades educativas y las desigualdades territoriales (Sección \@ref(movilidad)). A partir de este recorrido, a continuación destacamos algunos elementos teóricos, así como desafíos para su desarrollo en los contextos hispanoamericanos.
+
+En primer lugar, la relación entre las desigualdades territoriales y educativas requiere un enfoque que supere la mirada parcial de cada uno de estos polos. Entender la interrelación entre estas formas de la desigualdad supone construir abordajes que sobrepasen las fronteras disciplinares. Un corolario de esta prevalencia de los enfoques parcializado es la falta de fuentes de datos que vinculen los contextos residenciales con los escolares. En concreto, la mayor parte de los trabajos empíricos cuantitativos locales que analizan el vínculo entre territorio y educación se ven forzados a optar por fuentes de datos que caracterizan, o bien a los territorios (censos o encuestas de hogares), o bien a las escuelas (relevamientos o pruebas estandarizadas). Como consecuencia, la posibilidad de analizar la articulación entre ambas dimensiones ha quedado, muchas veces, supeditada al supuesto de que el vínculo entre las escuelas y los territorios está mediado fundamentalmente por la cercanía o proximidad física entre ambos. Sin embargo, este supuesto resulta demasiado restrictivo, toda vez que el objetivo a abordar es, justamente, caracterizar esta relación. Como señala el documento de la @DGEC2019, una alternativa posible para afrontar estas falencias sería el uso de fuentes provenientes de registros administrativos. Sin embargo, por factores institucionales, en general, el acceso a datos de registro es una práctica aún poco desarrollada en estas latitudes. Otra posibilidad es el uso triangulado de fuentes, una alternativa que parece promisoria, o el recurso a fuentes primarias, aunque los altos costos suelen imponer limitaciones importantes para esta segunda opción.
+
+Un segundo elemento que se destaca en la revisión es el hecho de que los procesos de segregación pueden efectivizarse a diferentes escalas y a partir de una articulación entre diferentes dominios. En este sentido, la propuesta de pensar la segregación urbana como el resultado articulado en diferentes dominios de la vida social [@Boterman2016], abre a los estudios urbanos la posibilidad de enriquecerse del estudio de las desigualdades educativas. La existencia de sistemas educativos con niveles de segregación mayores que los residenciales en sistemas donde prima la libre elección, da cuenta de la importancia de considerar los *paisajes educativos* [@Boterman2019a] para entender la segregación urbana.
+
+Por último, la literatura sobre este tema parece indicar que existe un fructífero espacio de indagación en la consideración de las prácticas de elección escolar y movilidad educativa [@Taylor2009]. En este sentido, el modo en que estas prácticas se articulan con los paisajes educativos define cómo se distribuyen las poblaciones en las escuelas. Un aspecto de las elecciones escolares, es las distancias (reales o simbólicas) entre las escuelas y el lugar de residencia de las familias. Teniendo esto en cuenta, resulta central prestar atención tanto a la localización urbana de las poblaciones y los establecimientos, como a la "disposición" de las primeras para atravesar estas distancias mediante las movilidades. Esta situación pone de relieve la necesidad de considerar el rol del espacio de una forma compleja, que incorpore las percepciones de los actores sobre los espacios urbanos y la disposición a movilizarse en ellos.
+
+### Referencias bibliográficas
